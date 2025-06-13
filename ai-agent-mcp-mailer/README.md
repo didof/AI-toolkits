@@ -56,8 +56,7 @@ EMAIL_TO=
 
 If you are using Gmail, it's highly recommended to use an "App Password" instead of your regular password for security reasons.
 
-Watch this video to learn how to generate an App Password for your Google Account:
-**[VIDEO\_URL\_PLACEHOLDER]**
+[Watch this video to learn how to generate an App Password for your Google Account](https://www.tiktok.com/@didof.dev/video/7515413726518873366?lang=en)
 
 ### 3\. Running the Development Studio
 
