@@ -1,0 +1,28 @@
+{
+  "name": "ai-agent-mcp-mailer",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "build": "email build",
+    "dev": "email dev",
+    "export": "email export"
+  },
+  "dependencies": {
+    "@react-email/components": "0.0.42",
+    "dotenv": "^16.5.0",
+    "minimist": "^1.2.8",
+    "nodemailer": "^7.0.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^24.0.1",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "react-email": "4.0.16"
+  }
+}
