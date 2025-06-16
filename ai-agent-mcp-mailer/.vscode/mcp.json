@@ -1,11 +1,10 @@
-
 {
-    "servers": {
-      "ai-agent-mcp-mailer": {
-        "type": "stdio",
-        "command": "node",
-        "args": ["${workspaceFolder}/dist/src/mcp.js"],
-        "envFile": "${workspaceFolder}/.env"
-      }
-    },
+  "servers": {
+    "ai-agent-mcp-mailer": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/dist/src/mcp.js"],
+      "envFile": "${workspaceFolder}/.env"
+    }
+  }
 }

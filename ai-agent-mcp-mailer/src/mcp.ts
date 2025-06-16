@@ -94,12 +94,7 @@ const SEND_EMAIL_TOOL: Tool = {
 const server = new Server(
   {
     name: "mailer",
-    version: "0.0.2",
-  },
-  {
-    capabilities: {
-      tools: {},
-    },
+    version: "0.0.1",
   }
 );
 

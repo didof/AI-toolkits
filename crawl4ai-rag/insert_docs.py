@@ -57,12 +57,12 @@ def is_sitemap(url: str) -> bool:
     return url.endswith('sitemap.xml') or 'sitemap' in urlparse(url).path
 
 def is_txt(url: str) -> bool:
-    return url.endswith('.txt')
+    return url.endswith('.txt') or url.endswith('.md')
 
 async def crawl_recursive_internal_links(start_urls, max_depth=3, max_concurrent=10) -> List[Dict[str,Any]]:
     """Recursive crawl using logic from 5-crawl_recursive_internal_links.py. Returns list of dicts with url and markdown."""
     browser_config = BrowserConfig(headless=True, verbose=False)
-    run_config = CrawlerRunConfig(cache_mode=CacheMode.BYPASS, stream=False)
+    run_config = CrawlerRunConfig(cache_mode=CacheMode.ENABLED, stream=False)
     dispatcher = MemoryAdaptiveDispatcher(
         memory_threshold_percent=70.0,
         check_interval=1.0,
@@ -130,7 +130,7 @@ def parse_sitemap(sitemap_url: str) -> List[str]:
 async def crawl_batch(urls: List[str], max_concurrent: int = 10) -> List[Dict[str,Any]]:
     """Batch crawl using logic from 3-crawl_sitemap_in_parallel.py."""
     browser_config = BrowserConfig(headless=True, verbose=False)
-    crawl_config = CrawlerRunConfig(cache_mode=CacheMode.BYPASS, stream=False)
+    crawl_config = CrawlerRunConfig(cache_mode=CacheMode.ENABLED, stream=False)
     dispatcher = MemoryAdaptiveDispatcher(
         memory_threshold_percent=70.0,
         check_interval=1.0,

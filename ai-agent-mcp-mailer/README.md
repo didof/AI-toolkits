@@ -158,12 +158,35 @@ For example, write markdown in `content/my-new-content.md` using your custom tem
 npx ts-node src/send.ts --template my-new-template --subject "Testing my new template" --content my-new-content
 ```
 
-## Learn More
-
 To learn more about React Email and explore all the available components, check out the official documentation.
 
   - [**React Email Documentation**](https://react.email/docs)
   - [**Available Components**](https://www.google.com/search?q=https://react.email/docs/components/overview)
+
+## MCP integration with VSCode
+
+You can allow any AI Agent to send e-mail in your stead, but to do this you need to wrap the functionality in an MCP. Let's use [@modelcontextprotocol/sdk
+](https://www.npmjs.com/package/@modelcontextprotocol/sdk) to simplify the process.
+
+Observe in mcp.ts how two tools are defined, one that returns available templates and one to send emails.
+As a matter of simplicity and security, the agent will only be able to define the `template`, `subject`, and body of the email (`text`). The recipient is hard-coded and derived from `.env`. Should you wish to expand this functionality, be aware.
+
+Once you have the MCP server ready, you can integrate it with any AI Agent. Here we see how to do that with VSCode. Create a `.vscode/mcp.json` file and put the following configuration inside.
+
+```json
+{
+  "servers": {
+    "ai-agent-mcp-mailer": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/dist/src/mcp.js"],
+      "envFile": "${workspaceFolder}/.env"
+    }
+  }
+}
+```
+
+It points to the built server (remember to `pnpm run build` the first time and after each change). This specific MCP also needs env variables, which we can easily provide. For more info, [see official documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
 ## License
 
